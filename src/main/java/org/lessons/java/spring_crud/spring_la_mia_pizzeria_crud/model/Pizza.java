@@ -1,5 +1,7 @@
 package org.lessons.java.spring_crud.spring_la_mia_pizzeria_crud.model;
 
+import org.hibernate.validator.constraints.URL;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,16 +32,19 @@ public class Pizza {
     private String descrizione;
 
     /* foto (url) */
+    @NotBlank(message = "L'URL dell'immagine è obbligatorio")
+    @URL(message = "Inserisci un URL valido")
     private String fotoUrl;
 
     /* prezzo */
     @NotNull(message = "Il prezzo è obbligatorio")
-    @Min(value= 0, message="Il prezzo non può essere negativo")
+    @Min(value = 0, message = "Il prezzo non può essere negativo")
     @Column(nullable = false)
     private Double prezzo;
 
     /* Costruttori */
-    public Pizza() {}
+    public Pizza() {
+    }
 
     public Pizza(String nome, String descrizione, String fotoUrl, Double prezzo) {
         this.nome = nome;
