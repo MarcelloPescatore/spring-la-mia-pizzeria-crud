@@ -3,7 +3,7 @@
 
 <head>
     <th:block th:replace="~{ fragments :: styles }" />
-    <title>Homepage</title>
+    <title>Pizze</title>
 </head>
 
 <body>
@@ -12,9 +12,7 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1>Questa è l'Homepage ciao</h1>
-        </div>
+        <th:block th:replace="~{fragments :: pizzaDetails} "></th:block>
     </main>
 </body>
 

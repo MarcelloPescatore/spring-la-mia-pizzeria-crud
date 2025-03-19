@@ -5,6 +5,14 @@
     <title>Pizze</title>
 </head>
 <body>
-    [[${pizze}]]
+    <header>
+        <th:block th:replace="~{fragments :: headerHomepage}"></th:block>
+    </header>
+
+    <main>
+        <div class="container px-0">
+            <th:block th:replace="~{fragments :: pizze('Le nostre pizze')}" />
+        </div>
+    </main>
 </body>
 </html>
