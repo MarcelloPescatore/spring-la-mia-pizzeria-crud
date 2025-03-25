@@ -2,19 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{ fragments :: styles }" />
-    <title>Pizze</title>
+    <title>Crea la tua pizza</title>
 </head>
 <body>
     <header>
-        <th:block th:replace="~{fragments :: header('listaPizze')}"></th:block>
+        <th:block th:replace="~{fragments :: header('editPage')}"></th:block>
     </header>
 
     <main>
         <div class="container px-0">
-            <th:block th:replace="~{fragments :: pizze('Le nostre pizze')}" />
+            <th:block th:replace="~{fragments :: pizzaFormEdit}" />
         </div>
     </main>
-
-    <th:block th:replace="~{fragments :: bootstrap-script}"/>
 </body>
 </html>

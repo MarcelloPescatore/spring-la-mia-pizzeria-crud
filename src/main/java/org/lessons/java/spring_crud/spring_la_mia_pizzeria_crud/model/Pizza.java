@@ -11,6 +11,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Min;
 
 @Entity
@@ -23,28 +24,28 @@ public class Pizza {
     private Integer id;
 
     /* nome */
-    @NotBlank
+    @NotBlank(message = "Il nome è obbligatorio")
     @Column(nullable = false)
     private String nome;
 
     /* descrizione */
     @Lob
+    @Size(max = 500, message = "La descrizione non può essere più lunga di 500 caratteri.")
     private String descrizione;
 
     /* foto (url) */
-    @NotBlank(message = "L'URL dell'immagine è obbligatorio")
+    @NotBlank(message = "URL è obbligatorio")
     @URL(message = "Inserisci un URL valido")
     private String fotoUrl;
 
     /* prezzo */
     @NotNull(message = "Il prezzo è obbligatorio")
-    @Min(value = 0, message = "Il prezzo non può essere negativo")
+    @Min(value = 1, message = "Il prezzo deve essere almeno 1€")
     @Column(nullable = false)
     private Double prezzo;
 
     /* Costruttori */
-    public Pizza() {
-    }
+    public Pizza(){};
 
     public Pizza(String nome, String descrizione, String fotoUrl, Double prezzo) {
         this.nome = nome;
@@ -97,7 +98,7 @@ public class Pizza {
     /* toString */
     @Override
     public String toString() {
-        return String.format("Pizza: %s - %.2f$", nome, prezzo);
+        return String.format("Pizza: %s - %.2f€", nome, prezzo);
     }
 
 }
