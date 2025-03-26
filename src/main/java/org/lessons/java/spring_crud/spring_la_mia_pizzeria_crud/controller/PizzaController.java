@@ -35,7 +35,7 @@ public class PizzaController {
     }
 
     @GetMapping
-    public String getMethodName(@RequestParam(name ="nome", required = false) String nome, Model model) {
+    public String getPizzaList(@RequestParam(name ="nome", required = false) String nome, Model model) {
         List<Pizza> pizze;
         
         if (nome != null && !nome.isEmpty()) {
